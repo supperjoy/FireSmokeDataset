@@ -2,7 +2,7 @@
 ﻿
 This repository provides the annotation guidelines, data processing pipeline, and training configurations for the EFS-DETR framework.
 ﻿
-Due to licensing constraints of web-sourced images, only a subset of the dataset is released. The following resources are provided to facilitate reproducibility.
+Due to licensing constraints of web-sourced images, only a subset of the dataset is released. The provided resources aim to ensure transparency and facilitate reproducibility.
 ﻿
 ---
 ﻿
@@ -13,119 +13,120 @@ All images are annotated with bounding boxes for two categories: **fire** and **
 ### 1. Fire Definition
 - Fire regions are defined as visible flames with distinct color (e.g., red, orange, yellow) and high luminance.
 - Only regions with clear combustion characteristics are annotated.
-- Fire-like objects (e.g., sunset, lamps, reflections) are NOT labeled as fire.
+- Fire-like objects (e.g., sunset, lamps, reflections) are **NOT** labeled as fire.
 ﻿
 ### 2. Smoke Definition
 - Smoke includes both dense and thin smoke with diffuse boundaries.
 - It is typically characterized by semi-transparent, irregular shapes with gray or white tones.
-- Low-contrast smoke is still annotated if visually distinguishable.
+- Low-contrast smoke is still annotated if it is visually distinguishable.
 ﻿
 ### 3. Ambiguous Cases
-- Fog, steam, and clouds are NOT labeled as smoke.
+- Fog, steam, and clouds are **NOT** labeled as smoke.
 - Exceptions:
   - When co-occurring with fire
-  - When showing clear smoke-like behavior
+  - When exhibiting clear smoke-like patterns originating from combustion
 ﻿
 ### 4. Bounding Box Rules
-- Bounding boxes should tightly cover the visible region.
-- For large or irregular smoke, a single bounding box can be used.
+- Bounding boxes should tightly cover the visible extent of the target.
+- For large or irregular smoke regions, a single bounding box may be used to cover the main area.
 ﻿
 ### 5. Multi-object Scenarios
 - Each fire or smoke instance is annotated separately.
 ﻿
 ### 6. Exclusion Rules
-- Extremely unclear or heavily occluded targets are excluded.
+- Extremely unclear, heavily occluded, or ambiguous samples are excluded from annotation.
 ﻿
 ---
 ﻿
 ## ⚙️ Data Processing Pipeline
 ﻿
-The dataset is constructed through a multi-stage pipeline:
+The dataset is constructed through a multi-stage data processing pipeline:
 ﻿
 ### 1. Data Collection
 - Public fire/smoke datasets
-- Open web sources (for research use only)
+- Open web resources (used strictly for research purposes)
 - Self-collected images
 ﻿
 ### 2. Data Filtering
-- Remove low-quality images (blurred, overexposed)
-- Remove irrelevant samples
+- Remove low-quality images (e.g., blurred, overexposed)
+- Remove irrelevant or mislabeled samples
 ﻿
 ### 3. Deduplication
-- Near-duplicate images are removed using perceptual hashing
+- Near-duplicate images are removed using perceptual hashing to reduce redundancy and prevent data leakage
 ﻿
 ### 4. Annotation
-- Annotated using LabelImg
-- Following the annotation guidelines above
+- Annotated using the LabelImg tool
+- Following the annotation guidelines described above
 ﻿
 ### 5. Quality Control
-- Verified by at least two annotators
-- Conflicts resolved through discussion
+- All annotations are verified by at least two annotators
+- Disagreements are resolved through discussion to ensure consistency
 ﻿
 ### 6. Data Split
-- Train / Val / Test = 7 : 2 : 1
-- Scene-level separation:
-  - Images from the same scene/video are kept in the same subset
-- Prevents data leakage
+- Train / Validation / Test = 7 : 2 : 1
 ﻿
 ### 7. Data Augmentation (Training Only)
-- Random flipping
-- Scaling
+- Random horizontal flipping
+- Random scaling
 - Color jittering
-- (Optional: Mosaic augmentation)
+- Mosaic augmentation
 ﻿
 ---
 ﻿
 ## 🧠 Training Configuration
 ﻿
-All models are trained under unified settings:
+All models are trained under unified settings to ensure fair comparison:
 ﻿
-- Input size: 640 × 640
+- Input size: 640 × 640  
 - Batch size:
-  - Training: 32
-  - Inference: 1
-- Epochs: 200
-- Optimizer: SGD (or AdamW)
-- Initial learning rate: 0.01
-- Weight decay: 5e-4
-- Learning rate schedule: cosine decay (or step decay)
+  - Training: 32  
+  - Inference: 1  
+- Epochs: 200  
+- Optimizer: SGD
+- Initial learning rate: 0.01  
+- Weight decay: 5e-4  
+- Learning rate schedule: cosine decay
 ﻿
-### Inference Setting
-- Batch size = 1
+### Inference Settings
+- Batch size = 1  
 - Includes:
-  - Forward inference
-  - Decoding
-  - Non-maximum suppression (NMS)
+  - Forward inference  
+  - Decoding  
+  - Non-maximum suppression (NMS)  
 - Excludes:
-  - Data loading
+  - Data loading time  
 ﻿
 ---
 ﻿
 ## 📊 Dataset Availability
 ﻿
-- A subset of the dataset is publicly released:
-  - Self-collected data
-  - Redistributable images
+- A subset of the dataset is publicly released, including:
+  - Self-collected data  
+  - Publicly redistributable images  
+﻿
+- Web-sourced images are **not included** due to licensing restrictions.
 ﻿
 ---
 ﻿
 ## 🔁 Reproducibility
 ﻿
-To reproduce the results:
+To reproduce the experimental results:
 ﻿
-1. Follow the annotation guidelines
-2. Apply the same data processing pipeline
-3. Use the provided training configuration
+1. Follow the annotation guidelines provided in this repository  
+2. Apply the same data processing pipeline  
+3. Use the training configurations described above  
+﻿
+These resources are designed to enable consistent and reproducible implementation of the proposed method.
 ﻿
 ---
 ﻿
 ## 📌 Notes
 ﻿
-- Experiments are also conducted on public datasets to validate generalization.
-- All models are evaluated under consistent settings for fair comparison.
+- Additional experiments are conducted on public datasets to validate the generalization capability of the proposed method.  
+- All models are evaluated under consistent hardware and software settings for fair comparison.  
 ﻿
 ---
 ﻿
 ## 📬 Contact
 ﻿
-For additional resources or questions, please contact the authors.
+For access to the full dataset, please contact the authors.
