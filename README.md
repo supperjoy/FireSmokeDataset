@@ -72,28 +72,20 @@ The dataset is constructed through a multi-stage data processing pipeline:
 - Mosaic augmentation
 ﻿
 ---
-﻿
 ## 🧠 Training Configuration
-﻿
-All models are trained under unified settings to ensure fair comparison:
-﻿
-- Input size: 640 × 640  
-- Batch size:
-  - Training: 32  
-  - Inference: 1  
-- Epochs: 200
-- Optimizer: SGD
-- Initial learning rate: 0.01  
-- Weight decay: 5e-4  
-﻿
-### Inference Settings
-- Batch size = 1  
-- Includes:
-  - Forward inference  
-  - Decoding  
-  - Non-maximum suppression (NMS)  
-- Excludes:
-  - Data loading time  
+
+| Item | Setting |
+|------|--------|
+| Input size | 640 × 640 |
+| Batch size (train) | 32 |
+| Batch size (test) | 1 |
+| Epochs | 200 |
+| Optimizer | SGD |
+| Learning rate | 0.01 |
+| Momentum | 0.9 |
+| Weight decay | 5e-4 |
+| Data augmentation | flip, scale, color jitter |
+| Loss | Focaler-SIoU |
 ﻿
 ---
 ﻿
