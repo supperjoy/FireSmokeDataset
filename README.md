@@ -82,7 +82,7 @@ All models are trained under unified settings to ensure fair comparison:
   - Training: 32  
   - Inference: 1  
 - Epochs: 200
-- Optimizer: AdamW
+- Optimizer: SGD
 - Initial learning rate: 0.01  
 - Weight decay: 5e-4  
 ﻿
