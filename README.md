@@ -83,10 +83,7 @@ The dataset is constructed through a multi-stage data processing pipeline:
 | Optimizer | SGD |
 | Learning rate | 0.01 |
 | Momentum | 0.9 |
-| Weight decay | 5e-4 |
-| Data augmentation | flip, scale, color jitter |
-| Loss | Focaler-SIoU |
-﻿
+| Weight decay | 5e-4 |﻿
 ---
 ﻿
 ## 📊 Dataset Availability
