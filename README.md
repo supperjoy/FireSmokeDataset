@@ -11,14 +11,10 @@ Due to licensing constraints of web-sourced images, only a subset of the dataset
 All images are annotated with bounding boxes for two categories: **fire** and **smoke**.
 ﻿
 ### 1. Fire Definition
-- Fire regions are defined as visible flames with distinct color (e.g., red, orange, yellow) and high luminance.
-- Only regions with clear combustion characteristics are annotated.
-- Fire-like objects (e.g., sunset, lamps, reflections) are **NOT** labeled as fire.
+Fire regions are defined as visible flames characterized by distinct colors (e.g., red, orange, and yellow) and high luminance. Only regions that exhibit clear combustion characteristics are annotated, whereas fire-like objects, such as sunsets, lamps, and reflections, are explicitly excluded from annotation.
 ﻿
 ### 2. Smoke Definition
-- Smoke includes both dense and thin smoke with diffuse boundaries.
-- It is typically characterized by semi-transparent, irregular shapes with gray or white tones.
-- Low-contrast smoke is still annotated if it is visually distinguishable.
+Smoke is defined to include both dense and thin forms with diffuse boundaries, typically exhibiting semi-transparent and irregular shapes with gray or white tones. Even low-contrast smoke is annotated provided that it is visually distinguishable.
 ﻿
 ### 3. Ambiguous Cases
 - Fog, steam, and clouds are **NOT** labeled as smoke.
