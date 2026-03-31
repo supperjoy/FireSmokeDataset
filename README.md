@@ -63,7 +63,7 @@ The dataset is constructed through a multi-stage data processing pipeline:
 - Disagreements are resolved through discussion to ensure consistency
 ﻿
 ### 6. Data Split
-- Train / Validation / Test = 7 : 2 : 1
+- Train / Test / Validation = 7 : 2 : 1
 ﻿
 ### 7. Data Augmentation (Training Only)
 - Random horizontal flipping
