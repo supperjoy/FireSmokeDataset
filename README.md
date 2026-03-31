@@ -70,7 +70,7 @@ The dataset is constructed through a multi-stage data processing pipeline:
 | Epochs | 200 |
 | Optimizer | SGD |
 | Learning rate | 0.01 |
-| Momentum | 0.9 |
+| Momentum | 0.937 |
 | Weight decay | 5e-4 |﻿
 ---
 ﻿
