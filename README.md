@@ -78,7 +78,6 @@ The dataset is constructed through a multi-stage data processing pipeline:
 |------|--------|
 | Input size | 640 × 640 |
 | Batch size (train) | 32 |
-| Batch size (test) | 1 |
 | Epochs | 200 |
 | Optimizer | SGD |
 | Learning rate | 0.01 |
