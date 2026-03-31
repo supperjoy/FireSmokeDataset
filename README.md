@@ -11,26 +11,19 @@ Due to licensing constraints of web-sourced images, only a subset of the dataset
 All images are annotated with bounding boxes for two categories: **fire** and **smoke**.
 ﻿
 ### 1. Fire Definition
-Fire regions are defined as visible flames characterized by distinct colors (e.g., red, orange, and yellow) and high luminance. Only regions that exhibit clear combustion characteristics are annotated, whereas fire-like objects, such as sunsets, lamps, and reflections, are explicitly excluded from annotation.
+Fire regions are defined as visible flames with distinct color characteristics (e.g., red, orange, and yellow) and high luminance. Only regions that exhibit clear combustion characteristics are annotated, while fire-like objects such as sunsets, lamps, or reflections are not labeled as fire.
 ﻿
 ### 2. Smoke Definition
 Smoke is defined to include both dense and thin forms with diffuse boundaries, typically exhibiting semi-transparent and irregular shapes with gray or white tones. Even low-contrast smoke is annotated provided that it is visually distinguishable.
 ﻿
 ### 3. Ambiguous Cases
-- Fog, steam, and clouds are **NOT** labeled as smoke.
-- Exceptions:
-  - When co-occurring with fire
-  - When exhibiting clear smoke-like patterns originating from combustion
+Ambiguous cases such as fog, steam, and clouds are generally excluded from smoke annotations to avoid introducing noisy labels. Annotations are only assigned when there is clear evidence of a combustion source, such as co-occurrence with fire or identifiable smoke-like motion patterns originating from burning objects. In uncertain cases, a conservative strategy is adopted, and no annotation is assigned.
 ﻿
 ### 4. Bounding Box Rules
-- Bounding boxes should tightly cover the visible extent of the target.
-- For large or irregular smoke regions, a single bounding box may be used to cover the main area.
+Bounding boxes are required to tightly cover the visible extent of the target while minimizing unnecessary background. For objects with clear boundaries, annotations should closely follow the object shape. For diffuse or irregular regions such as smoke, bounding boxes are allowed to cover the main visible area without requiring precise alignment with unclear boundaries.
 ﻿
-### 5. Multi-object Scenarios
-- Each fire or smoke instance is annotated separately.
-﻿
-### 6. Exclusion Rules
-- Extremely unclear, heavily occluded, or ambiguous samples are excluded from annotation.
+### 5. Exclusion Rules
+Samples that are extremely unclear, heavily occluded, or difficult to interpret are excluded from annotation to reduce noisy labels. In cases where the presence of fire or smoke cannot be confidently determined, no annotation is assigned.
 ﻿
 ---
 ﻿
